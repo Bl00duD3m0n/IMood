@@ -4,6 +4,6 @@ CREATE TABLE Settings (
     Notific INT DEFAULT 0 NOT NULL,
     Privacy INT DEFAULT 0 NOT NULL,
     Lang VARCHAR(2) DEFAULT 'EN' NOT NULL,
-    PRIMARY KEY(SettingID)
+    PRIMARY KEY(SettingID),
     FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
