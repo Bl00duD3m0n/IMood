@@ -14,6 +14,18 @@ def getEmojis():
     except Exception as e:
         return json.dumps({'error': str(e)})
 
+@app.route('/iMood/login', methods=['POST'])
+def usrLogin():
+    # Check if the request contains JSON data
+    if request.is_json:
+        data = request.get_json()  # Extract JSON data from the request
+        login = data.get('login')
+        password = data.get('password')
+        result = get_query(f"SELECT * FROM Users WHERE Username = '{login}' AND PasswordHash = '{password}'")
+        if result != ():
+            return json.dumps({'status':'succes'})
+    return json.dumps({'status': 'Invalid JSON data'}), 400
+
 @app.route('/check', methods=['GET'])
 def checkApi():
     try:
