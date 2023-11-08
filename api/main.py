@@ -13,6 +13,14 @@ def getEmojis():
         return json.dumps(result)
     except Exception as e:
         return json.dumps({'error': str(e)})
+
+@app.route('/check', methods=['GET'])
+def checkApi():
+    try:
+        result = get_query("SELECT * FROM Emoji_types")
+        return json.dumps(result)
+    except Exception as e:
+        return json.dumps({'status': 'Alive'})
     
 @app.route('/iMood/getUser/<usr_id>', methods=['GET'])
 def getUser(usr_id):
