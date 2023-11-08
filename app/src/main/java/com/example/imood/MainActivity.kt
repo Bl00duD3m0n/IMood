@@ -1,14 +1,16 @@
-package com.example.imood;
+package com.example.imood
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import java.net.URL
+import kotlin.io.readBytes
 
-import android.os.Bundle;
-
-public class MainActivity extends AppCompatActivity {
-//test
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.loginscreen);
+class MainActivity : AppCompatActivity() {
+    //test
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.loginscreen)
+        val apiResponse = URL("http://129.151.198.87:5000/iMood/getEmojis").readText()
+        print(apiResponse)
     }
 }

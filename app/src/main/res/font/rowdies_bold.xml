@@ -2,6 +2,6 @@
 <font-family xmlns:android="http://schemas.android.com/apk/res/android">
     <font
         android:fontWeight="400"
-        android:font="@font/RowdiesBold"
+        android:font="@font/rowdiesbold"
         />
 </font-family>
